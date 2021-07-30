@@ -7,3 +7,15 @@ function iniciar() {
     reproducir.addEventListener('click', presionar, false);
     barra.addEventListener('click', mover, false);
 }
+
+function presionar(){
+    if(!medio.paused && !medio.ended) {
+    medio.pause();
+    reproducir.innerHTML='Reproducir';
+    window.clearInterval(bucle);
+    }else{
+    medio.play();
+    reproducir.innerHTML='Pausa';
+    bucle=setInterval(estado, 1000);
+    }
+}
